@@ -31104,39 +31104,42 @@ const ranks = [
         "rank": 2884
     }
 ]
-window.addEventListener('scroll', (event) => {
-    const cards = document.querySelectorAll('.card-wrap .text-white.font-bold.truncate');
-    cards.forEach((el) => {
-        const elContent = el.innerHTML;
-        const id = elContent.split('#')[1];
-        const rank = ranks.find((r) => {
-            return Number(r.num) === Number(id)
-        });
-        let color;
-        if(rank) {
-            const cRank = rank.rank;
-            switch(true) {
-                case (cRank<100):
-                    color = '#ff8000';
-                    break;
-                case (cRank<500):
-                    color = '#a335ee';
-                    break;
-                case (cRank<1000):
-                    color = '#0070dd';
-                    break;
-                case (cRank<1500):
-                    color = '#0070dd';
-                    break;
-                case (cRank<2500):
-                    color = '#1eff00';
-                    break;
-                default:
-                    color = '#ffffff';
-                    break;
+if(window.location.pathname === '/collection/nearnautnft.near') {
+    window.addEventListener('scroll', (event) => {
+        const cards = document.querySelectorAll('.card-wrap .text-white.font-bold.truncate');
+        cards.forEach((el) => {
+            const elContent = el.innerHTML;
+            const id = elContent.split('#')[1];
+            const rank = ranks.find((r) => {
+                return Number(r.num) === Number(id)
+            });
+            let color;
+            if(rank) {
+                const cRank = rank.rank;
+                switch(true) {
+                    case (cRank<100):
+                        color = '#ff8000';
+                        break;
+                    case (cRank<500):
+                        color = '#a335ee';
+                        break;
+                    case (cRank<1000):
+                        color = '#0070dd';
+                        break;
+                    case (cRank<1500):
+                        color = '#0070dd';
+                        break;
+                    case (cRank<2500):
+                        color = '#1eff00';
+                        break;
+                    default:
+                        color = '#ffffff';
+                        break;
+                }
+                el.innerHTML = elContent + `  <span  style="color:${color}; display:block; font-size: 25px;" >&nbsp;${rank.rank}</span>`
             }
-            el.innerHTML = elContent + `  <span  style="color:${color}; display:block; font-size: 25px;" >&nbsp;${rank.rank}</span>`
-        }
+        })
     })
-})
+}
+
 
