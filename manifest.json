@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name":"Paras nearnauts ranking",
+  "version": "0.1",
+  "description": "Shows nearnauts ranking on Paras catalogue.",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
